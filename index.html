@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畢業即就業！把環遊世界變成日常</title>
+    <style>
+        /* 基礎設定與字體 */
+        body {
+            font-family: 'Helvetica Neue', Arial, '微軟正黑體', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f4f6f9;
+        }
+
+        /* 全域按鈕樣式 */
+        .cta-btn-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        .cta-inline-btn {
+            display: inline-block;
+            background-color: #00B900;
+            color: white;
+            padding: 14px 40px;
+            font-size: 1.25em;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-inline-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+        }
+
+        /* 航空新聞來源按鈕樣式 */
+        .news-btn {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 8px 18px;
+            font-size: 0.9em;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .news-btn:hover {
+            background-color: #34495e;
+        }
+
+        /* 英雄區塊 (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(10, 34, 64, 0.75), rgba(10, 34, 64, 0.75)), url('https://images.unsplash.com/photo-1544015759-2479dc8c4d21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 130px 20px;
+        }
+        .hero h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+            color: #f1c40f; 
+        }
+        .hero p {
+            font-size: 1.35em;
+            max-width: 800px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+        }
+
+        /* 1. 前言引導 (Introduction) */
+        .intro-section {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .intro-section h2 {
+            color: #0a2240;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+        }
+        .intro-section p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.15em;
+            color: #4a5568;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* 2. 新聞報導區塊 (News Section) */
+        .news-section {
+            background-color: #ebedf2;
+            padding: 65px 20px;
+        }
+        .news-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .news-section h2 {
+            text-align: center;
+            color: #0a2240;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+        }
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-top: 5px solid #e74c3c; 
+        }
+        .news-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 3px 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .news-card h3 {
+            margin-top: 0;
+            font-size: 1.55em;
+            color: #1a252f;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        .news-content {
+            color: #444;
+            font-size: 1.05em;
+            text-align: justify;
+            white-space: pre-line; 
+        }
+
+        /* 3. 核心優勢 (Features) - 藍天矩形卡片全新設計 */
+        .features-section {
+            /* 滿版天空藍漸層背景 */
+            background: linear-gradient(135deg, #60b6e9 0%, #3598d9 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+        .features-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .features-section h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 2.4em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .features-subtitle {
+            text-align: center;
+            color: #e0f2fe;
+            font-size: 1.15em;
+            margin-bottom: 45px;
+        }
+        
+        /* 網格系統：自動排列卡片 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* 圓角矩形卡片設計 */
+        .feature-card-premium {
+            background: rgba(255, 255, 255, 0.95); /* 帶有微透光感的白色 */
+            padding: 35px 25px;
+            border-radius: 20px; /* 明顯的圓角 */
+            box-shadow: 0 10px 25px rgba(10, 34, 64, 0.15);
+            text-align: center; /* 內容置中 */
+            transition: transform 0.3s;
+        }
+        .feature-card-premium:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 傾斜黃色標題底色 */
+        .title-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .title-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -8px;
+            right: -8px;
+            bottom: 0;
+            background-color: #f1c40f; /* 黃色底 */
+            transform: skewX(-15deg); /* 向左傾斜 */
+            z-index: 1;
+            border-radius: 4px;
+        }
+        .feature-card-premium h3 {
+            position: relative;
+            z-index: 2; /* 確保文字在黃色底色上方 */
+            color: #0a2240;
+            margin: 0;
+            font-size: 1.25em;
+            padding: 5px 10px;
+        }
+        .feature-text {
+            color: #444;
+            font-size: 1.05em;
+            text-align: justify;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* 4. 薪資福利對照表 (Comparison Table) */
+        .table-section {
+            background-color: #0a2240;
+            color: white;
+            padding: 70px 20px;
+        }
+        .table-container {
+            max-width: 950px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+        .table-section h2 {
+            text-align: center;
+            color: #f1c40f;
+            font-size: 2.2em;
+            margin-bottom: 35px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+            font-size: 1.15em;
+        }
+        tr:hover {
+            background-color: #f1f2f6;
+        }
+        td:nth-child(2) {
+            font-weight: bold;
+            color: #c0392b;
+            background-color: #fff9f9;
+        }
+
+        /* 5. 底部行動呼籲 (Call to Action) */
+        .cta-section {
+            padding: 85px 20px;
+            text-align: center;
+            background-color: white;
+        }
+        .cta-section h2 {
+            color: #0a2240;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        /* 響應式微調 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            th, td { padding: 12px; font-size: 0.9em; }
+            .cta-inline-btn { font-size: 1.15em; padding: 12px 30px; display: block; width: 85%; margin: 10px auto; }
+            .news-card { padding: 22px; }
+            .news-card h3 { font-size: 1.35em; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 視覺英雄區塊 -->
+    <header class="hero">
+        <h1>畢業即就業！把環遊世界變成日常</h1>
+        <p>不再擔心低薪環境，掌握航空業黃金門票，預約你的高薪未來！</p>
+    </header>
+
+    <!-- 1. 前言引導 -->
+    <section class="intro-section">
+        <h2>親愛的社會新鮮人，你對未來感到焦慮嗎？</h2>
+        <p>踏出校園的那一刻，面對普遍不到 4 萬的起薪，根據調查，新鮮人求職最大的擔憂就是「薪水太低」與「缺乏發展性」。但在這片低薪環境中，航空業為年輕人開啟了另一扇大門。報考空服員不限科系，只要具備基礎外語能力與服務熱忱，這不僅是一份工作，更是讓你能在職場起點成功「預約高薪未來」的黃金門票。</p>
+        
+        <div class="cta-btn-container">
+            <a href="https://www.3people.com.tw/map/linemap/" target="_blank" class="cta-inline-btn">💬 立即諮詢專業顧問</a>
+        </div>
+    </section>
+
+    <!-- 2. 新聞焦點報導區塊 -->
+    <section class="news-section">
+        <div class="news-container">
+            <h2>📰 焦點新聞：掌握航空業最新趨勢</h2>
+
+            <!-- 第一篇新聞 -->
+            <div class="news-card">
+                <span class="news-tag">焦點報導</span>
+                <h3>台灣20大高薪職業出爐　空服員排行第8名</h3>
+                <div class="news-content">
+                    台灣最新高薪職業地圖正式揭曉！根據1111人力銀行最新公布的「台灣前 20 大高薪職業調查」顯示，航空業憑藉優渥的薪資待遇與國際化的工作環境，再度成為今年度最具含金量的吸金產業。其中，「飛行機師」靠著卓越的起薪與穩健的薪資成長率，強勢榮登年度高薪職業榜首；而大眾嚮往的「空服員」則以亮眼表現躋身第八名。隨著全球旅遊與商務全面復甦，各大航空公司迎來密集的招募熱潮，成為應屆畢業生與轉職者的熱門首選。
+                </div>
+                <a href="https://www.3people.com.tw/%E6%96%B0%E8%81%9E/%E5%8F%B0%E7%81%A320%E5%A4%A7%E9%AB%98%E8%96%AA%E8%81%B7%E6%A5%AD%E5%87%BA%E7%88%90-%E7%A9%BA%E6%9C%8D%E5%93%A1%E6%8E%92%E8%A1%8C%E7%AC%AC8%E5%90%8D/%E5%B0%B1%E6%A5%AD%E8%80%83%E8%A9%A6/71cf257b-bb49-471d-8149-f5fc5fa3341c" target="_blank" class="news-btn">📰 查看完整新聞來源</a>
+            </div>
+
+            <!-- 第二篇新聞 -->
+            <div class="news-card">
+                <span class="news-tag">業界動態</span>
+                <h3>長榮薪資起飛！非主管職平均年薪224.7萬元</h3>
+                <div class="news-content">
+                    根據資料，2021年長榮航空非主管職薪資總額為105.22億元、員工8,464人，平均年薪124.3萬元，中位數72.7萬元；至2024年，薪資總額提升至192.42億元、員工8,562人，平均年薪突破兩百萬元、達224.7萬元，中位數更躍升至161.7萬元，短短四年幾乎翻倍成長。報復性旅遊需求帶動業績飆升，公司同步調整薪資結構，不僅提升空服員與地勤人員底薪，也強化績效與年終獎金制度，使收入與公司成果連動。
+                </div>
+                <a href="https://www.3people.com.tw/%E6%96%B0%E8%81%9E/%E9%95%B7%E6%A6%AE%E8%88%AA%E8%96%AA%E8%B3%87%E8%B5%B7%E9%A3%9B%EF%BC%81%E9%9D%9E%E4%B8%BB%E7%AE%A1%E8%81%B7%E5%B9%B3%E5%9D%87%E5%B9%B4%E8%96%AA2247%E8%90%AC%E5%85%83-%E7%A9%A9%E5%B1%85%E8%88%AA%E7%A9%BA%E6%A5%AD%E5%86%A0%E8%BB%8D/%E5%B0%B1%E6%A5%AD%E8%80%83%E8%A9%A6/afb1217c-0c6a-4fef-95c3-a390010bc077" target="_blank" class="news-btn">📰 查看完整新聞來源</a>
+            </div>
+
+            <div class="cta-btn-container">
+                <a href="https://www.3people.com.tw/map/linemap/" target="_blank" class="cta-inline-btn">💬 立即諮詢專業顧問</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 新鮮人搶攻航空金飯碗 (天空藍背景 + 圓角卡片設計) -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2>✈️ 新鮮人搶攻航空金飯碗</h2>
+            <div class="features-subtitle">掌握以下關鍵優勢，一畢業就贏在職場起跑點</div>
+            
+            <div class="features-grid">
+                <!-- 卡片 01 -->
+                <div class="feature-card-premium">
+                    <div class="title-wrapper">
+                        <h3>起薪輾壓同儕，空服員月薪 7-8 萬</h3>
+                    </div>
+                    <p class="feature-text">新進空服員底薪加上飛行津貼、外站加給，首年即具備挑戰年薪百萬的實力。越早投入航空業，越能提早累積人生的第一桶金。任職1~3年均薪達120.5萬。</p>
+                </div>
+
+                <!-- 卡片 02 -->
+                <div class="feature-card-premium">
+                    <div class="title-wrapper">
+                        <h3>不限科系，應屆畢業生錄取大幅提升</h3>
+                    </div>
+                    <p class="feature-text">打破文組低薪魔咒！各大航司招考皆不限科系，考官更看重的是溝通能力與臨場反應。大學四年的社團與打工經驗，都能轉化為面試的致勝關鍵。</p>
+                </div>
+
+                <!-- 卡片 03 -->
+                <div class="feature-card-premium">
+                    <div class="title-wrapper">
+                        <h3>大四先卡位，一畢業就受訓</h3>
+                    </div>
+                    <p class="feature-text">多數國籍航空開放大四應屆畢業生先行報考，無縫接軌職場。只要下定決心，現在就是最好的起跑點。</p>
+                </div>
+
+                <!-- 卡片 04 -->
+                <div class="feature-card-premium">
+                    <div class="title-wrapper">
+                        <h3>旅遊大爆發，開缺創近年新高</h3>
+                    </div>
+                    <p class="feature-text">長榮、華航、星宇、虎航等國籍航空正積極擴充機隊，大量釋出客艙組員職缺。招募人數屢創新高，競爭壓力相對稀釋，正是進場的最佳時機。</p>
+                </div>
+
+                <!-- 卡片 05 -->
+                <div class="feature-card-premium">
+                    <div class="title-wrapper">
+                        <h3>全薪專業受訓，解鎖頂級職能</h3>
+                    </div>
+                    <p class="feature-text">錄取後即提供數個月的「全薪培訓」，免花錢就能獲得高含金量的航空急救、危機處理與國際禮儀專業證照。</p>
+                </div>
+
+                <!-- 卡片 06 -->
+                <div class="feature-card-premium">
+                    <div class="title-wrapper">
+                        <h3>優待機票福利大放送，全家受惠</h3>
+                    </div>
+                    <p class="feature-text">任職滿一定期限，即可享有員工與直系親屬的一折或免費優待機票，大幅降低家庭出國成本，這是航空業最具競爭力的隱形薪資。</p>
+                </div>
+            </div>
+
+            <div class="cta-btn-container" style="margin-top: 40px;">
+                <a href="https://www.3people.com.tw/map/linemap/" target="_blank" class="cta-inline-btn" style="background-color: #ff9f43; box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4);">💬 立即諮詢專業顧問</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 薪資福利對照表 -->
+    <section class="table-section">
+        <div class="table-container">
+            <h2>空服員 vs. 一般企業（薪資福利對照表）</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>比較項目</th>
+                        <th>空服員 (客艙組員)</th>
+                        <th>一般企業</th>
+                        <th>戰略價值分析</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>平均起薪</td>
+                        <td>$70,000 - $80,000+</td>
+                        <td>$30,000 - $35,000</td>
+                        <td>起薪直接翻倍，加速累積財富</td>
+                    </tr>
+                    <tr>
+                        <td>年終與獎金</td>
+                        <td>依營運發放 + 外站津貼/飛行加給</td>
+                        <td>視營運發放年終 + 一般三節</td>
+                        <td>薪資結構多元，長程線收入更高</td>
+                    </tr>
+                    <tr>
+                        <td>特殊福利</td>
+                        <td>員工及眷屬優待機票、外站住宿</td>
+                        <td>一般勞健保、特約商店折扣</td>
+                        <td>一人考取全家受惠，工作即旅遊</td>
+                    </tr>
+                    <tr>
+                        <td>職涯發展</td>
+                        <td>具備高抗壓性與國際視野，轉職彈性大</td>
+                        <td>侷限於單一產業領域</td>
+                        <td>外商、精品業、高階秘書跨界首選</td>
+                    </tr>
+                    <tr>
+                        <td>休假制度</td>
+                        <td>彈性排班制 (可平日休假避開人潮)</td>
+                        <td>固定見紅休 (周休二日)</td>
+                        <td>靈活排班，外站停留時間可自由運用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="cta-btn-container" style="margin-top: 40px;">
+            <a href="https://www.3people.com.tw/map/linemap/" target="_blank" class="cta-inline-btn">💬 立即諮詢專業顧問</a>
+        </div>
+    </section>
+
+    <!-- 5. 底部行動呼籲 -->
+    <section class="cta-section">
+        <h2>現在就開始，預約你的航空職涯！</h2>
+        <p>加入全台服務處諮詢，由專業顧問一對一為你評估</p>
+        
+        <div class="cta-btn-container">
+            <a href="https://www.3people.com.tw/map/linemap/" target="_blank" class="cta-inline-btn" style="font-size: 1.4em; padding: 15px 50px;">💬 立即諮詢專業顧問</a>
+        </div>
+    </section>
+
+</body>
+</html>
